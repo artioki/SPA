@@ -1,0 +1,25 @@
+body {
+    font-family: sans-serif;
+  }
+  header{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  a{
+    text-decoration: none;
+    color: #252F3F;
+  }
+  a.active{
+    color: #33FF6D;
+    text-decoration:underline;
+  }
+  a:hover{
+    color: #33FF6D;
+    text-decoration:underline;
+  }
+div{
+  font-size: 50px;
+  padding: 50px;
+  text-align: center;
+}
