@@ -9,9 +9,9 @@
 
 <body>
 	<header>
-		<a onclick="myFun('')">Activity</a>
-		<a onclick="myFun('/Map')">Map</a>
-		<a onclick="myFun('/Timer')">Timer</a>
+		<a  onclick="event.preventDefault();myFun('/') " href="/">Activity</a>
+		<a  onclick="event.preventDefault();myFun('/Map') " href="/Map">Map</a>
+		<a  onclick="event.preventDefault();myFun('/Timer') " href="/Timer">Timer</a>
 	</header>
 	<div id="app">
 		

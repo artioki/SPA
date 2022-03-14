@@ -1,17 +1,32 @@
+const  hashchanged  = async () =>{
+  console.log("hashchange:"+window.location.pathname)
+  path=window.location.pathname
 
-function myFun(path){
-  var xhr = new XMLHttpRequest();
-  console.log(`/api${path}`)
-  xhr.open('GET', `/api${path}`, false);
-  xhr.send();
+  url = window.location.origin+'/api'+path
+  console.log(url)
 
-  if (xhr.status != 200) { 
-    console.log( xhr.status + ': ' + xhr.statusText ); 
-  } 
-  else {
-    document.getElementById("app").innerHTML =xhr.responseText;
+  let res = await fetch(url);
+
+  if (res.ok) { // если HTTP-статус в диапазоне 200-299
+    // получаем тело ответа (см. про этот метод ниже)
+    document.getElementById("app").innerHTML = await res.text();
+  } else {
+    alert("Ошибка HTTP: " + response.status);
+  }
+} 
+
+window.onpopstate= hashchanged;
+
+  let firstload = false;
+
+  if(!firstload){
+    console.log(window.location.pathname)
+    myFun(window.location.pathname)
   }
 
+function myFun(path){
+
   history.pushState(null, null, path);
+  hashchanged()
 }
 console.log("end")
